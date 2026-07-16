@@ -7,16 +7,13 @@ using Microsoft.Extensions.Hosting;
 namespace BookStoreApi;
 
 public class Program {
-  public static void Main(string[] args) {
-    var builder = WebApplication.CreateBuilder(args);
+  public static void Main() {
+    var builder = WebApplication.CreateBuilder();
 
-    // Add services to the container.
-    // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
     builder.Services.AddOpenApi();
 
     var app = builder.Build();
 
-    // Configure the HTTP request pipeline.
     if (app.Environment.IsDevelopment()) {
       app.MapOpenApi();
     }
@@ -30,7 +27,7 @@ public class Program {
     app.MapGet("/weatherforecast", () => {
       var forecast = Enumerable.Range(1, 5).Select(index =>
         new WeatherForecast(
-          DateOnly.FromDateTime(System.DateTime.Now.AddDays(index)),
+          DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
           Random.Shared.Next(-20, 55),
           summaries[Random.Shared.Next(summaries.Length)]
         )).ToArray();
