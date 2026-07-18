@@ -1,6 +1,48 @@
 @BookStoreApi_HostAddress = http://localhost:5025
 
-GET {{BookStoreApi_HostAddress}}/weatherforecast/
+
+### Get all books
+GET {{BookStoreApi_HostAddress}}/api/v1/books
 Accept: application/json
 
-###
+
+### Create a book
+POST {{BookStoreApi_HostAddress}}/api/v1/books
+Content-Type: application/json
+
+{
+  "title": "Clean Code",
+  "author": "Robert C. Martin",
+  "description": "A book about writing clean software",
+  "category": "Programming",
+  "language": "English",
+  "totalPages": 464
+}
+
+
+### Get book by id
+GET {{BookStoreApi_HostAddress}}/api/v1/books/{42d59eff-0709-4dc7-12c0-08dee51b8101}
+Accept: application/json
+
+
+### Update book
+PUT {{BookStoreApi_HostAddress}}/api/v1/books/{42d59eff-0709-4dc7-12c0-08dee51b8101}
+Content-Type: application/json
+
+{
+  "title": "Clean Code Updated",
+  "author": "Robert C. Martin",
+  "description": "Updated description",
+  "category": "Programming",
+  "language": "English",
+  "totalPages": 500
+}
+
+
+### Delete book
+DELETE {{BookStoreApi_HostAddress}}/api/v1/books/{42d59eff-0709-4dc7-12c0-08dee51b8101}
+
+
+### OpenAPI document
+GET {{BookStoreApi_HostAddress}}/openapi/v1.json
+Accept: application/json
