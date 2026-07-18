@@ -1,6 +1,8 @@
 using System;
 using System.Reflection;
 using BookStoreApi.AppContext;
+using BookStoreApi.Interfaces;
+using BookStoreApi.Services;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -18,5 +20,6 @@ static class ServiceExtensions {
       configure.UseSqlServer(builder.Configuration.GetConnectionString("sqlConnection"));
     });
     builder.Services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+    builder.Services.AddScoped<IBookService, BookService>();
   }
 }
