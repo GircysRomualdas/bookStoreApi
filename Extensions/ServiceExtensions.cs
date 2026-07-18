@@ -1,6 +1,7 @@
 using System;
 using System.Reflection;
 using BookStoreApi.AppContext;
+using BookStoreApi.Exceptions;
 using BookStoreApi.Interfaces;
 using BookStoreApi.Services;
 using FluentValidation;
@@ -21,5 +22,7 @@ static class ServiceExtensions {
     });
     builder.Services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
     builder.Services.AddScoped<IBookService, BookService>();
+    builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+    builder.Services.AddProblemDetails();
   }
 }
