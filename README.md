@@ -4,6 +4,7 @@
 
 - .NET SDK 10
 - Docker
+- Entity Framework Core CLI tools
 
 ## Installation
 
@@ -13,6 +14,12 @@
 
 ```bash
 docker compose up -d
+```
+
+3. Run migrations:
+
+```bash
+dotnet ef database update
 ```
 
 ## Usage
