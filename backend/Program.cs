@@ -12,6 +12,11 @@ public class Program {
     var builder = WebApplication.CreateBuilder();
     builder.AddApplicationServices();
     builder.Services.AddOpenApi();
+    builder.Services.AddCors(options => {
+      options.AddPolicy("App", policy => {
+        policy.WithOrigins("http://localhost:5173").AllowAnyHeader().AllowAnyMethod();
+      });
+    });
 
     var app = builder.Build();
 
@@ -20,6 +25,7 @@ public class Program {
     }
 
     app.UseHttpsRedirection();
+    app.UseCors("App");
     app.UseExceptionHandler();
     app.MapGroup("/api/v1/").WithTags(" Book endpoints").MapBookEndPoint();
     app.Run();

@@ -1,23 +1,19 @@
-import { Link } from "react-router";
+import useBooks from "../../hooks/useBooks";
+import BookCard from "../../components/books/BookCard";
 
 export default function BooksPage() {
+  const { books, loading } = useBooks();
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
   return (
-    <>
-      <div>
-        <h1>Books Page</h1>
-        <Link to="/books/create">Create Book</Link>
-      </div>
-      <div>
-        <div>
-          <Link to="/books/1">Book 1</Link>
-        </div>
-        <div>
-          <Link to="/books/2">Book 2</Link>
-        </div>
-        <div>
-          <Link to="/books/3">Book 3</Link>
-        </div>
-      </div>
-    </>
+    <div>
+      <h1>Books</h1>
+      {books.map((book) => (
+        <BookCard key={book.id} book={book} />
+      ))}
+    </div>
   );
 }
