@@ -5,7 +5,8 @@ export async function ApiClient<T>(
   const response = await fetch(url, options);
 
   if (!response.ok) {
-    throw new Error("Error");
+    const error = await response.json();
+    throw error;
   }
 
   return response.json();
