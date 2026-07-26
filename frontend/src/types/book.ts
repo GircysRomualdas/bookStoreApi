@@ -7,3 +7,5 @@ export type Book = {
   language: string;
   totalPages: number;
 };
+
+export type CreateBook = Omit<Book, "id">;

@@ -1,20 +1,44 @@
-const baseUrl = "";
+import type { Book, CreateBook } from "../types/book";
+import { ApiClient } from "./client";
 
-export async function getBooks() {
-  const endpint = "";
-  const response = await fetch(url);
-  if (!response.ok) {
-    return;
-  }
+const baseUrl = "http://localhost:5025/api/v1/books";
 
-  const result = await response.json();
-  return result;
+export async function getBooks(): Promise<Book[]> {
+  return ApiClient<Book[]>(baseUrl);
 }
 
-export async function getBook(id) {}
+export async function getBook(id: string): Promise<Book> {
+  const url = `${baseUrl}/${id}`;
+  return ApiClient<Book>(url);
+}
 
-export async function createBook(book) {}
+export async function createBook(book: CreateBook): Promise<Book> {
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(book),
+  };
+  return ApiClient<Book>(baseUrl, options);
+}
 
-export async function updateBook(id, book) {}
+export async function updateBook(id: string, book: CreateBook): Promise<Book> {
+  const url = `${baseUrl}/${id}`;
+  const options = {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(book),
+  };
+  return ApiClient<Book>(url, options);
+}
 
-export async function deleteBook(id) {}
+export async function deleteBook(id: string): Promise<boolean> {
+  const url = `${baseUrl}/${id}`;
+  const options = {
+    method: "DELETE",
+  };
+  return ApiClient<boolean>(url, options);
+}
