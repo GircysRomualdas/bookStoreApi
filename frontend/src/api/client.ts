@@ -1,3 +1,5 @@
+import ApiException from "../exceptions/ApiException";
+
 export async function ApiClient<T>(
   url: string,
   options?: RequestInit,
@@ -6,7 +8,7 @@ export async function ApiClient<T>(
 
   if (!response.ok) {
     const error = await response.json();
-    throw error;
+    throw new ApiException(error);
   }
 
   return response.json();
