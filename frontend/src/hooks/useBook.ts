@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import type { Book } from "../types/book";
 import type { ApiError } from "../types/error";
 import { getBook } from "../api/booksApi";
-import ApiException from "../exceptions/ApiException";
+import mapError from "../services/errorService";
 
 export default function useBook(id?: string) {
   const [book, setBook] = useState<Book | null>(null);
@@ -11,20 +11,12 @@ export default function useBook(id?: string) {
 
   useEffect(() => {
     async function fetchBook() {
-      if (!id) return;
       try {
+        if (!id) return;
         const data = await getBook(id);
         setBook(data);
       } catch (err) {
-        if (err instanceof ApiException) {
-          setError(err.apiError);
-        } else {
-          setError({
-            title: "Unknown Error",
-            statusCode: 500,
-            message: "Something went wrong",
-          });
-        }
+        setError(mapError(err));
       } finally {
         setLoading(false);
       }

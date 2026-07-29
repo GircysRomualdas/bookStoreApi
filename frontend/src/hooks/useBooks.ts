@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import type { Book } from "../types/book";
 import type { ApiError } from "../types/error";
 import { getBooks } from "../api/booksApi";
+import mapError from "../services/errorService";
 
 export default function useBooks() {
   const [books, setBooks] = useState<Book[]>([]);
@@ -14,7 +15,7 @@ export default function useBooks() {
         const data = await getBooks();
         setBooks(data);
       } catch (err) {
-        setError(err as ApiError);
+        setError(mapError(err));
       } finally {
         setLoading(false);
       }
