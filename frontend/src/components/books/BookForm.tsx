@@ -5,11 +5,15 @@ import validateBook from "../../services/validateBookService";
 export default function BookForm({
   onSubmit,
   loading,
+  initialValues,
 }: {
   onSubmit: (data: CreateBook) => Promise<void>;
   loading?: boolean;
+  initialValues?: CreateBook;
 }) {
-  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [validateErrors, setValidateErrors] = useState<Record<string, string>>(
+    {},
+  );
 
   async function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -27,74 +31,96 @@ export default function BookForm({
 
     const validationErrors = validateBook(book);
     if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
+      setValidateErrors(validationErrors);
       return;
     }
-    setErrors({});
+    setValidateErrors({});
 
     await onSubmit(book);
   }
+
   return (
     <form onSubmit={handleSubmit}>
       <fieldset disabled={loading}>
         <div>
-          {errors.title && (
+          {validateErrors.title && (
             <div>
-              <p>{errors.title}</p>
+              <p>{validateErrors.title}</p>
             </div>
           )}
           <label htmlFor="title">Title</label>
-          <input id="title" name="title" />
+          <input id="title" name="title" defaultValue={initialValues?.title} />
         </div>
 
         <div>
-          {errors.author && (
+          {validateErrors.author && (
             <div>
-              <p>{errors.author}</p>
+              <p>{validateErrors.author}</p>
             </div>
           )}
           <label htmlFor="author">Author</label>
-          <input id="author" name="author" />
+          <input
+            id="author"
+            name="author"
+            defaultValue={initialValues?.author}
+          />
         </div>
 
         <div>
-          {errors.description && (
+          {validateErrors.description && (
             <div>
-              <p>{errors.description}</p>
+              <p>{validateErrors.description}</p>
             </div>
           )}
           <label htmlFor="description">Description</label>
-          <textarea id="description" name="description" />
+          <textarea
+            id="description"
+            name="description"
+            defaultValue={initialValues?.description}
+          />
         </div>
 
         <div>
-          {errors.category && (
+          {validateErrors.category && (
             <div>
-              <p>{errors.category}</p>
+              <p>{validateErrors.category}</p>
             </div>
           )}
           <label htmlFor="category">Category</label>
-          <input id="category" name="category" />
+          <input
+            id="category"
+            name="category"
+            defaultValue={initialValues?.category}
+          />
         </div>
 
         <div>
-          {errors.language && (
+          {validateErrors.language && (
             <div>
-              <p>{errors.language}</p>
+              <p>{validateErrors.language}</p>
             </div>
           )}
           <label htmlFor="language">Language</label>
-          <input id="language" name="language" />
+          <input
+            id="language"
+            name="language"
+            defaultValue={initialValues?.language}
+          />
         </div>
 
         <div>
-          {errors.totalPages && (
+          {validateErrors.totalPages && (
             <div>
-              <p>{errors.totalPages}</p>
+              <p>{validateErrors.totalPages}</p>
             </div>
           )}
           <label htmlFor="totalPages">Total Pages</label>
-          <input id="totalPages" name="totalPages" type="number" />
+          <input
+            id="totalPages"
+            name="totalPages"
+            type="number"
+            defaultValue={initialValues?.totalPages}
+          />
         </div>
       </fieldset>
 

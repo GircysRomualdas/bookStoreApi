@@ -1,19 +1,19 @@
 import { useState } from "react";
-import type { Book } from "../types/book";
 import type { ApiError } from "../types/error";
 import type { CreateBook } from "../types/book";
 import { booksService } from "../services/booksService";
-import mapError from "../services/errorService";
+import mapError from "../services/mapErrorService";
 
 export default function useUpdatedBook() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<ApiError | null>(null);
-  const [updatedBook, setUpdatedBook] = useState<Book | null>(null);
 
   async function updateBook(id: string, data: CreateBook) {
     try {
+      setLoading(true);
+      setError(null);
+
       const book = await booksService.update(id, data);
-      setUpdatedBook(book);
       return book;
     } catch (err) {
       setError(mapError(err));
@@ -21,5 +21,5 @@ export default function useUpdatedBook() {
       setLoading(false);
     }
   }
-  return { updateBook, loading, error, updatedBook };
+  return { updateBook, loading, error };
 }

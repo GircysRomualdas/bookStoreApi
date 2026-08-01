@@ -6,6 +6,7 @@ export default function BookDetailsPage() {
   const { id } = useParams();
   const { book, loading, error } = useBook(id);
 
+  if (!id) return <p>Book not found</p>;
   if (loading) return <p>Loading...</p>;
   if (error) return <Error error={error} />;
   if (!book) return <p>Book not found</p>;

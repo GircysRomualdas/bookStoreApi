@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type { Book } from "../types/book";
 import type { ApiError } from "../types/error";
-import mapError from "../services/errorService";
+import mapError from "../services/mapErrorService";
 import { booksService } from "../services/booksService";
 
 export default function useBooks() {
@@ -12,6 +12,8 @@ export default function useBooks() {
   useEffect(() => {
     async function fetchBooks() {
       try {
+        setLoading(true);
+        setError(null);
         const data = await booksService.getAll();
         setBooks(data);
       } catch (err) {

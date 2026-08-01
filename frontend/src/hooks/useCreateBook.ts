@@ -2,7 +2,7 @@ import { useState } from "react";
 import type { ApiError } from "../types/error";
 import type { Book, CreateBook } from "../types/book";
 import { booksService } from "../services/booksService";
-import mapError from "../services/errorService";
+import mapError from "../services/mapErrorService";
 
 export default function useCreateBook() {
   const [loading, setLoading] = useState(false);
