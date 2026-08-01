@@ -13,13 +13,12 @@ export default function CreateBookPage() {
     if (book) navigate(`/books/${book.id}`);
   }
 
-  if (loading) return <p>Loading...</p>;
   if (error) return <Error error={error} />;
 
   return (
     <>
       <h1>Create book page</h1>
-      <BookForm onSubmit={handleSubmit} />
+      <BookForm onSubmit={handleSubmit} loading={loading} />
     </>
   );
 }

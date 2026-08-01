@@ -7,7 +7,7 @@ export default function EditBookPage() {
     <>
       <h1>Edit book page</h1>
       <h1>Book ID: {id} </h1>
-      <BookForm />
+      {/* <BookForm /> */}
     </>
   );
 }
