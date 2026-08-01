@@ -1,6 +1,6 @@
-import useBooks from "../../hooks/useBooks";
-import BookCard from "../../components/books/BookCard";
-import Error from "../../components/Error";
+import useBooks from "../hooks/useBooks";
+import BookCard from "../components/BookCard";
+import Error from "../../../shared/components/Error";
 import { Link } from "react-router-dom";
 
 export default function BooksPage() {

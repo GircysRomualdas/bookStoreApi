@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import type { Book } from "../types/book";
-import type { ApiError } from "../types/error";
-import mapError from "../services/mapErrorToApiError";
-import { booksService } from "../services/booksService";
+import type { ApiError } from "../../../shared/types/error";
+import mapErrorToApiError from "../../../shared/mappers/mapErrorToApiError";
+import { getBook } from "../api/booksApi";
 
 export default function useBook(id?: string) {
   const [book, setBook] = useState<Book | null>(null);
@@ -20,10 +20,10 @@ export default function useBook(id?: string) {
       try {
         setLoading(true);
         setError(null);
-        const data = await booksService.getOne(id);
+        const data = await getBook(id);
         setBook(data);
       } catch (err) {
-        setError(mapError(err));
+        setError(mapErrorToApiError(err));
       } finally {
         setLoading(false);
       }

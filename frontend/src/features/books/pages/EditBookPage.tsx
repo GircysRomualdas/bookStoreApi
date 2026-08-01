@@ -1,10 +1,10 @@
 import { useNavigate, useParams } from "react-router-dom";
-import BookForm from "../../components/books/BookForm";
-import type { CreateBook } from "../../types/book";
-import useUpdatedBook from "../../hooks/useEditBook";
-import Error from "../../components/Error";
-import useBook from "../../hooks/useBook";
-import mapBookToCreateBook from "../../services/mapBookToCreateBook";
+import BookForm from "../components/BookForm";
+import type { CreateBook } from "../types/book";
+import useUpdatedBook from "../hooks/useUpdateBook";
+import Error from "../../../shared/components/Error";
+import useBook from "../hooks/useBook";
+import mapBookToCreateBook from "../mappers/mapBookToCreateBook";
 
 export default function EditBookPage() {
   const { id } = useParams();

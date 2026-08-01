@@ -1,5 +1,5 @@
 import type { Book, CreateBook } from "../types/book";
-import { ApiClient } from "./client";
+import { ApiClient } from "../../../shared/api/client";
 
 const baseUrl = "http://localhost:5025/api/v1/books";
 
@@ -35,10 +35,10 @@ export async function updateBook(id: string, book: CreateBook): Promise<Book> {
   return ApiClient<Book>(url, options);
 }
 
-export async function deleteBook(id: string): Promise<boolean> {
+export async function deleteBook(id: string): Promise<void> {
   const url = `${baseUrl}/${id}`;
   const options = {
     method: "DELETE",
   };
-  return ApiClient<boolean>(url, options);
+  return ApiClient<void>(url, options);
 }

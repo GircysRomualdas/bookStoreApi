@@ -1,6 +1,6 @@
 import { useState } from "react";
-import type { CreateBook } from "../../types/book";
-import validateBook from "../../services/validateBookService";
+import type { CreateBook } from "../types/book";
+import validateBook from "../validation/validateBook";
 
 export default function BookForm({
   onSubmit,

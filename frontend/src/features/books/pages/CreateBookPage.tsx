@@ -1,8 +1,8 @@
-import BookForm from "../../components/books/BookForm";
-import useCreateBook from "../../hooks/useCreateBook";
-import type { CreateBook } from "../../types/book";
+import BookForm from "../components/BookForm";
+import useCreateBook from "../hooks/useCreateBook";
+import type { CreateBook } from "../types/book";
 import { useNavigate } from "react-router-dom";
-import Error from "../../components/Error";
+import Error from "../../../shared/components/Error";
 
 export default function CreateBookPage() {
   const { createBook, loading, error } = useCreateBook();

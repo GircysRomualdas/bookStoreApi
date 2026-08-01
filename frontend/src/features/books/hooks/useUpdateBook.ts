@@ -1,8 +1,8 @@
 import { useState } from "react";
-import type { ApiError } from "../types/error";
+import type { ApiError } from "../../../shared/types/error";
 import type { CreateBook } from "../types/book";
-import { booksService } from "../services/booksService";
-import mapError from "../services/mapErrorToApiError";
+import { updateBook as updateBookApi } from "../api/booksApi";
+import mapErrorToApiError from "../../../shared/mappers/mapErrorToApiError";
 
 export default function useUpdatedBook() {
   const [loading, setLoading] = useState(false);
@@ -13,10 +13,10 @@ export default function useUpdatedBook() {
       setLoading(true);
       setError(null);
 
-      const book = await booksService.update(id, data);
+      const book = await updateBookApi(id, data);
       return book;
     } catch (err) {
-      setError(mapError(err));
+      setError(mapErrorToApiError(err));
     } finally {
       setLoading(false);
     }

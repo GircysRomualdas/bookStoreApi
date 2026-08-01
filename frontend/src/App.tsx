@@ -1,10 +1,10 @@
-import { BrowserRouter, Routes, Route, Navigate, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
-import BooksPage from "./pages/books/BooksPage";
-import BookDetailsPage from "./pages/books/BookDetailsPage";
-import CreateBookPage from "./pages/books/CreateBookPage";
-import EditBookPage from "./pages/books/EditBookPage";
-import Navbar from "./components/Navbar";
+import BooksPage from "./features/books/pages/BooksPage";
+import BookDetailsPage from "./features/books/pages/BookDetailsPage";
+import CreateBookPage from "./features/books/pages/CreateBookPage";
+import EditBookPage from "./features/books/pages/EditBookPage";
+import Navbar from "./shared/components/Navbar";
 
 export default function App() {
   return (
