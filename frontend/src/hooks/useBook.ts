@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type { Book } from "../types/book";
 import type { ApiError } from "../types/error";
-import mapError from "../services/mapErrorService";
+import mapError from "../services/mapErrorToApiError";
 import { booksService } from "../services/booksService";
 
 export default function useBook(id?: string) {

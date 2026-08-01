@@ -1,14 +1,17 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, Link } from "react-router-dom";
 import "./App.css";
 import BooksPage from "./pages/books/BooksPage";
 import BookDetailsPage from "./pages/books/BookDetailsPage";
 import CreateBookPage from "./pages/books/CreateBookPage";
 import EditBookPage from "./pages/books/EditBookPage";
+import Navbar from "./components/Navbar";
 
 export default function App() {
   return (
     <>
       <BrowserRouter>
+        <Navbar />
+
         <Routes>
           <Route path="/" element={<Navigate to="/books" />} />
           <Route path="/books" element={<BooksPage />} />
