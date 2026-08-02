@@ -2,6 +2,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import useBook from "../hooks/useBook";
 import Error from "../../../shared/components/Error";
 import useDeleteBook from "../hooks/useDeleteBook";
+import styles from "./BookDetailsPage.module.css";
 
 export default function BookDetailsPage() {
   const { id } = useParams();
@@ -24,27 +25,53 @@ export default function BookDetailsPage() {
     if (success) navigate("/");
   }
   return (
-    <>
-      <h1>Book</h1>
-      <div>
-        <h2>Title: {book.title} </h2>
-        <h2>Author: {book.author} </h2>
-        <h2>Category: {book.category} </h2>
-        <h2>Language: {book.language} </h2>
-        <h2>Total pages: {book.totalPages} </h2>
-        <p>Description: {book.description} </p>
+    <div className={styles.page}>
+      <h1 className={styles.title}>Book</h1>
+      <div className={styles.details}>
+        <div className={styles.row}>
+          <span className={styles.label}>Title:</span>
+          <span className={styles.value}>{book.title}</span>
+        </div>
+        <div className={styles.row}>
+          <span className={styles.label}>Author:</span>
+          <span className={styles.value}>{book.author}</span>
+        </div>
+        <div className={styles.row}>
+          <span className={styles.label}>Category:</span>
+          <span className={styles.value}>{book.category}</span>
+        </div>
+        <div className={styles.row}>
+          <span className={styles.label}>Language:</span>
+          <span className={styles.value}>{book.language}</span>
+        </div>
+        <div className={styles.row}>
+          <span className={styles.label}>Total pages:</span>
+          <span className={styles.value}>{book.totalPages}</span>
+        </div>
+        <div>
+          <span className={styles.label}>Description</span>
+
+          <p className={styles.description}>{book.description}</p>
+        </div>
       </div>
-      <Link to={`/books/${book.id}/edit`}>Edit</Link>
-      <div>
-        {deleteError && (
-          <div>
-            <p>{deleteError.message}</p>
-          </div>
-        )}
-        <button onClick={handleDelete} disabled={deleteLoading}>
+      {deleteError && (
+        <div className={styles.error}>
+          <Error error={deleteError} />
+        </div>
+      )}
+      <div className={styles.actions}>
+        <Link className={styles.editButton} to={`/books/${book.id}/edit`}>
+          Edit
+        </Link>
+
+        <button
+          className={styles.deleteButton}
+          onClick={handleDelete}
+          disabled={deleteLoading}
+        >
           {deleteLoading ? "Deleting..." : "Delete"}
         </button>
       </div>
-    </>
+    </div>
   );
 }

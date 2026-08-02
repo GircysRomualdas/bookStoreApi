@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { CreateBook } from "../types/book";
 import validateBook from "../validation/validateBook";
+import styles from "./BookForm.module.css";
 
 export default function BookForm({
   onSubmit,
@@ -40,82 +41,104 @@ export default function BookForm({
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <fieldset disabled={loading}>
-        <div>
+    <form onSubmit={handleSubmit} className={styles.form}>
+      <fieldset disabled={loading} className={styles.fieldset}>
+        <div className={styles.field}>
           {validateErrors.title && (
-            <div>
+            <div className={styles.error}>
               <p>{validateErrors.title}</p>
             </div>
           )}
-          <label htmlFor="title">Title</label>
-          <input id="title" name="title" defaultValue={initialValues?.title} />
+          <label htmlFor="title" className={styles.label}>
+            Title
+          </label>
+          <input
+            className={styles.input}
+            id="title"
+            name="title"
+            defaultValue={initialValues?.title}
+          />
         </div>
 
-        <div>
+        <div className={styles.field}>
           {validateErrors.author && (
-            <div>
+            <div className={styles.error}>
               <p>{validateErrors.author}</p>
             </div>
           )}
-          <label htmlFor="author">Author</label>
+          <label htmlFor="author" className={styles.label}>
+            Author
+          </label>
           <input
+            className={styles.input}
             id="author"
             name="author"
             defaultValue={initialValues?.author}
           />
         </div>
 
-        <div>
+        <div className={styles.field}>
           {validateErrors.description && (
-            <div>
+            <div className={styles.error}>
               <p>{validateErrors.description}</p>
             </div>
           )}
-          <label htmlFor="description">Description</label>
+          <label htmlFor="description" className={styles.label}>
+            Description
+          </label>
           <textarea
+            className={styles.textarea}
             id="description"
             name="description"
             defaultValue={initialValues?.description}
           />
         </div>
 
-        <div>
+        <div className={styles.field}>
           {validateErrors.category && (
-            <div>
+            <div className={styles.error}>
               <p>{validateErrors.category}</p>
             </div>
           )}
-          <label htmlFor="category">Category</label>
+          <label htmlFor="category" className={styles.label}>
+            Category
+          </label>
           <input
+            className={styles.input}
             id="category"
             name="category"
             defaultValue={initialValues?.category}
           />
         </div>
 
-        <div>
+        <div className={styles.field}>
           {validateErrors.language && (
-            <div>
+            <div className={styles.error}>
               <p>{validateErrors.language}</p>
             </div>
           )}
-          <label htmlFor="language">Language</label>
+          <label htmlFor="language" className={styles.label}>
+            Language
+          </label>
           <input
+            className={styles.input}
             id="language"
             name="language"
             defaultValue={initialValues?.language}
           />
         </div>
 
-        <div>
+        <div className={styles.field}>
           {validateErrors.totalPages && (
-            <div>
+            <div className={styles.error}>
               <p>{validateErrors.totalPages}</p>
             </div>
           )}
-          <label htmlFor="totalPages">Total Pages</label>
+          <label htmlFor="totalPages" className={styles.label}>
+            Total Pages
+          </label>
           <input
+            className={styles.input}
             id="totalPages"
             name="totalPages"
             type="number"
@@ -124,7 +147,7 @@ export default function BookForm({
         </div>
       </fieldset>
 
-      <button type="submit" disabled={loading}>
+      <button className={styles.button} type="submit" disabled={loading}>
         {loading ? "Creating..." : "Create"}
       </button>
     </form>

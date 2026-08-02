@@ -1,0 +1,25 @@
+.card {
+  display: block;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 12px 0;
+}
+
+.card:hover {
+  opacity: 0.7;
+}
+
+.title {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 700;
+
+  color: #6e7586;
+}
+
+.author {
+  margin: 0;
+  color: #9eaac1;
+  font-size: 16px;
+}

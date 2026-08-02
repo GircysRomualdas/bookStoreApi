@@ -2,6 +2,7 @@ import useBooks from "../hooks/useBooks";
 import BookCard from "../components/BookCard";
 import Error from "../../../shared/components/Error";
 import { Link } from "react-router-dom";
+import styles from "./BooksPage.module.css";
 
 export default function BooksPage() {
   const { books, loading, error } = useBooks();
@@ -10,12 +11,18 @@ export default function BooksPage() {
   if (error) return <Error error={error} />;
 
   return (
-    <div>
-      <Link to="/books/create">Create</Link>
-      <h1>Books</h1>
-      {books.map((book) => (
-        <BookCard key={book.id} book={book} />
-      ))}
+    <div className={styles.page}>
+      <div className={styles.header}>
+        <h1 className={styles.title}>Books</h1>
+        <Link className={styles.createButton} to="/books/create">
+          Create
+        </Link>
+      </div>
+      <div className={styles.booksGrid}>
+        {books.map((book) => (
+          <BookCard key={book.id} book={book} />
+        ))}
+      </div>
     </div>
   );
 }
