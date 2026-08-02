@@ -21,6 +21,10 @@ export default function BookDetailsPage() {
 
   async function handleDelete() {
     if (!id) return;
+
+    const confirmed = window.confirm("Are you sure you want to delete?");
+    if (!confirmed) return;
+
     const success = await deleteBook(id);
     if (success) navigate("/");
   }
