@@ -1,7 +1,7 @@
-using BookStoreApi.Models;
+using BookApi.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace BookStoreApi.AppContext;
+namespace BookApi.AppContext;
 
 class ApplicationContext(DbContextOptions<ApplicationContext> options) : DbContext(options) {
   private const string DefaultSchema = "bookapi";

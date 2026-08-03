@@ -2,9 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using BookStoreApi.Contracts;
+using BookApi.Contracts;
 
-namespace BookStoreApi.Interfaces;
+namespace BookApi.Interfaces;
 
 interface IBookService {
   Task<BookResponse> AddBookAsync(CreateBookRequest createBookRequest);

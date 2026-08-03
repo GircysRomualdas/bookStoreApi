@@ -1,4 +1,4 @@
-namespace BookStoreApi.Contracts;
+namespace BookApi.Contracts;
 
 record CreateBookRequest {
   public string Title { get; init; } = "";

@@ -1,9 +1,9 @@
 using System;
-using BookStoreApi.Models;
+using BookApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace BookStoreApi.Configuration;
+namespace BookApi.Configuration;
 
 class BookTypeConfigurations : IEntityTypeConfiguration<BookModel> {
   public void Configure(EntityTypeBuilder<BookModel> builder) {

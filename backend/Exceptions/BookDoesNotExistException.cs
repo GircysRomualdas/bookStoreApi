@@ -1,6 +1,6 @@
 using System;
 
-namespace BookStoreApi.Exceptions;
+namespace BookApi.Exceptions;
 
 class BookDoesNotExistException : Exception {
   private int _id { get; set; }

@@ -1,6 +1,6 @@
 using System;
 
-namespace BookStoreApi.Models;
+namespace BookApi.Models;
 
 class BookModel {
   public Guid Id { get; set; }

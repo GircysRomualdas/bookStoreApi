@@ -2,14 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BookStoreApi.AppContext;
-using BookStoreApi.Contracts;
-using BookStoreApi.Interfaces;
-using BookStoreApi.Models;
+using BookApi.AppContext;
+using BookApi.Contracts;
+using BookApi.Interfaces;
+using BookApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace BookStoreApi.Services;
+namespace BookApi.Services;
 
 class BookService : IBookService {
   private readonly ApplicationContext _context;

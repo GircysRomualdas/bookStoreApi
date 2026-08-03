@@ -1,11 +1,11 @@
-using BookStoreApi.Endpoints;
-using BookStoreApi.Extensions;
+using BookApi.Endpoints;
+using BookApi.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace BookStoreApi;
+namespace BookApi;
 
 public class Program {
   public static void Main() {

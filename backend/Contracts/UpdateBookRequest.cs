@@ -1,4 +1,4 @@
-namespace BookStoreApi.Contracts;
+namespace BookApi.Contracts;
 
 record UpdateBookRequest {
   public string Title { get; set; } = "";

@@ -1,11 +1,11 @@
 using System;
-using BookStoreApi.Contracts;
-using BookStoreApi.Interfaces;
+using BookApi.Contracts;
+using BookApi.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 
-namespace BookStoreApi.Endpoints;
+namespace BookApi.Endpoints;
 
 static class BookEndpoints {
   public static IEndpointRouteBuilder MapBookEndPoint(this IEndpointRouteBuilder app) {

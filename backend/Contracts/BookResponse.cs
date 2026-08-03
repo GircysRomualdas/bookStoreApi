@@ -1,6 +1,6 @@
 using System;
 
-namespace BookStoreApi.Contracts;
+namespace BookApi.Contracts;
 
 record BookResponse {
   public Guid Id { get; set; }

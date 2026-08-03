@@ -5,8 +5,8 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>disable</ImplicitUsings>
 
-    <RootNamespace>BookStoreApi</RootNamespace>
-    <AssemblyName>BookStoreApi</AssemblyName>
+    <RootNamespace>BookApi</RootNamespace>
+    <AssemblyName>BookApi</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

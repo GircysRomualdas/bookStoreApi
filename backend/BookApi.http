@@ -1,13 +1,13 @@
-@BookStoreApi_HostAddress = http://localhost:5025
+@BookApi_HostAddress = http://localhost:5025
 
 
 ### Get all books
-GET {{BookStoreApi_HostAddress}}/api/v1/books
+GET {{BookApi_HostAddress}}/api/v1/books
 Accept: application/json
 
 
 ### Create a book
-POST {{BookStoreApi_HostAddress}}/api/v1/books
+POST {{BookApi_HostAddress}}/api/v1/books
 Content-Type: application/json
 
 {
@@ -21,12 +21,12 @@ Content-Type: application/json
 
 
 ### Get book by id
-GET {{BookStoreApi_HostAddress}}/api/v1/books/{42d59eff-0709-4dc7-12c0-08dee51b8101}
+GET {{BookApi_HostAddress}}/api/v1/books/{42d59eff-0709-4dc7-12c0-08dee51b8101}
 Accept: application/json
 
 
 ### Update book
-PUT {{BookStoreApi_HostAddress}}/api/v1/books/{42d59eff-0709-4dc7-12c0-08dee51b8101}
+PUT {{BookApi_HostAddress}}/api/v1/books/{42d59eff-0709-4dc7-12c0-08dee51b8101}
 Content-Type: application/json
 
 {
@@ -40,9 +40,9 @@ Content-Type: application/json
 
 
 ### Delete book
-DELETE {{BookStoreApi_HostAddress}}/api/v1/books/{42d59eff-0709-4dc7-12c0-08dee51b8101}
+DELETE {{BookApi_HostAddress}}/api/v1/books/{42d59eff-0709-4dc7-12c0-08dee51b8101}
 
 
 ### OpenAPI document
-GET {{BookStoreApi_HostAddress}}/openapi/v1.json
+GET {{BookApi_HostAddress}}/openapi/v1.json
 Accept: application/json

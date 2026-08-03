@@ -2,12 +2,12 @@ using System;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
-using BookStoreApi.Contracts;
+using BookApi.Contracts;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 
-namespace BookStoreApi.Exceptions;
+namespace BookApi.Exceptions;
 
 class GlobalExceptionHandler : IExceptionHandler {
   private readonly ILogger<GlobalExceptionHandler> _logger;

@@ -1,4 +1,4 @@
-namespace BookStoreApi.Contracts;
+namespace BookApi.Contracts;
 
 record ErrorResponse {
   public string Title { get; set; } = "";

@@ -1,16 +1,16 @@
 using System;
 using System.Reflection;
-using BookStoreApi.AppContext;
-using BookStoreApi.Exceptions;
-using BookStoreApi.Interfaces;
-using BookStoreApi.Services;
+using BookApi.AppContext;
+using BookApi.Exceptions;
+using BookApi.Interfaces;
+using BookApi.Services;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace BookStoreApi.Extensions;
+namespace BookApi.Extensions;
 
 static class ServiceExtensions {
   public static void AddApplicationServices(this IHostApplicationBuilder builder) {
