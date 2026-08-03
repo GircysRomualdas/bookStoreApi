@@ -1,4 +1,4 @@
-# BookStoreAPI
+# BookApi
 
 ## Requirements
 
